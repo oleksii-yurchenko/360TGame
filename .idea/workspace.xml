@@ -5,16 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b372be6-d1f5-4013-83d3-b16bd75b3ae9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/player/MessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/SocketMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/threadsImpl/BlockingQueueMessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/threadsImpl/TwoThreadedChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/MessageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/MessageServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/player/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2ihkb7KLPyiKtWL7Wp1cm1wIAD5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -23,13 +44,44 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Chat.executor": "Run",
+    "Application.Client.executor": "Run",
+    "Application.Server.executor": "Run",
+    "Application.TwoThreadedChat.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.yura.socketsImpl.Client" />
+      <module name="players-chat" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.yura.socketsImpl.Server" />
+      <module name="players-chat" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.Client" />
+    </list>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -45,6 +97,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719950267329</updated>
+      <workItem from="1720007140616" duration="4148000" />
     </task>
     <servers />
   </component>

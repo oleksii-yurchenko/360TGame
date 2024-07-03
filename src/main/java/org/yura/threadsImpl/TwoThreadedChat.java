@@ -1,11 +1,17 @@
-package org.yura;
+package org.yura.threadsImpl;
 
-public class Chat {
+import org.yura.player.MessageService;
+import org.yura.player.Player;
+
+public class TwoThreadedChat {
     public static void main(String[] args) {
-        MessageService service = new MessageServiceImpl();
+        MessageService service = new BlockingQueueMessageService();
 
-        Player initiator = Player.getPlayer("Alex", "John", service);
-        Player repeater = Player.getPlayer("John", "Alex", service);
+        Player initiator = new Player("Alex");
+        Player repeater = new Player("Anna");
+
+        initiator.setTransport(service);
+        repeater.setTransport(service);
 
         run(initiator, repeater, "Hello!");
     }
