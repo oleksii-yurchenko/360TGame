@@ -5,18 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b372be6-d1f5-4013-83d3-b16bd75b3ae9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/player/MessageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/SocketMessageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/threadsImpl/BlockingQueueMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/RepeaterStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/SingleProcessChat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/TwoProcessesChat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/threadsImpl/TwoThreadedChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/MessageService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/MessageServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/player/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/SocketMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/SocketMessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/threadsImpl/BlockingQueueMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueMessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/threadsImpl/TwoThreadedChat.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -46,7 +50,10 @@
   "keyToString": {
     "Application.Chat.executor": "Run",
     "Application.Client.executor": "Run",
+    "Application.Main.executor": "Run",
     "Application.Server.executor": "Run",
+    "Application.SingleProcessChat.executor": "Run",
+    "Application.TwoProcessesChat.executor": "Run",
     "Application.TwoThreadedChat.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -58,29 +65,17 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Client">
-    <configuration name="Client" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="org.yura.socketsImpl.Client" />
-      <module name="players-chat" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Server" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="org.yura.socketsImpl.Server" />
-      <module name="players-chat" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Server" />
-      <item itemvalue="Application.Client" />
-    </list>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -97,7 +92,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719950267329</updated>
-      <workItem from="1720007140616" duration="4148000" />
+      <workItem from="1720007140616" duration="15854000" />
+      <workItem from="1720040596883" duration="15441000" />
     </task>
     <servers />
   </component>

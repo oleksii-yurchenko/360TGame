@@ -1,7 +1,9 @@
-package org.yura.player;
+package org.yura.model;
+
+import org.yura.model.message.strategy.MessageStrategy;
 
 public class Player {
-    private String name;
+    private final String name;
     private MessageService transport;
     private int sentMsgCount;
     private int receivedMsgCount;
@@ -11,25 +13,26 @@ public class Player {
     }
 
     public void sendMessage(String msg) {
-        checkTransport();
+        if (transport == null)
+            throw new IllegalStateException("Transport has not been defined!");
+
         transport.sendMessage(msg);
         sentMsgCount++;
     }
 
     public String receiveMessage() {
-        checkTransport();
+        if (transport == null)
+            throw new IllegalStateException("Transport has not been defined!");
+
         var msg = transport.receiveMessage();
         System.out.printf("%s <- %s%n", this.name, msg);
         receivedMsgCount++;
         return msg;
     }
 
-    public void checkTransport(){
-        if (transport == null)
-            throw new IllegalStateException("Transport has not been defined!");
+    public void communicate(MessageStrategy strategy){
+        strategy.start(this);
     }
-
-    public String getName() { return name; }
 
     public int getSentMsgCount() { return sentMsgCount; }
 

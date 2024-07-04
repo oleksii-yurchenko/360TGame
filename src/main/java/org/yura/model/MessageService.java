@@ -1,4 +1,4 @@
-package org.yura.player;
+package org.yura.model;
 
 public interface MessageService {
     void sendMessage(String msg);
