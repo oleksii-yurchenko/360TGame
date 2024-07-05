@@ -1,23 +1,27 @@
-package org.yura.two.processes.chat;
+package org.yura.three.processes.chat;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class TwoProcessesChat {
+public class ThreeProcessesChat {
     public static void main(String[] args) {
         try {
-            ProcessBuilder serverBuilder = new ProcessBuilder("java", "-cp", "target/classes", "org.yura.two.processes.chat.Server");
-            ProcessBuilder clientBuilder = new ProcessBuilder("java", "-cp", "target/classes", "org.yura.two.processes.chat.Client");
+            ProcessBuilder serverBuilder = new ProcessBuilder("java", "-cp", "target/classes", "org.yura.three.processes.chat.SocketServer");
+            ProcessBuilder initiatorBuilder = new ProcessBuilder("java", "-cp", "target/classes", "org.yura.three.processes.chat.InitiatorClient");
+            ProcessBuilder repeaterBuilder = new ProcessBuilder("java", "-cp", "target/classes", "org.yura.three.processes.chat.RepeaterClient");
 
             Process serverProcess = serverBuilder.start();
-            Process clientProcess = clientBuilder.start();
+            Process initiatorProcess = initiatorBuilder.start();
+            Process repeaterProcess = repeaterBuilder.start();
 
             handleOutputStream(serverProcess);
-            handleOutputStream(clientProcess);
+            handleOutputStream(initiatorProcess);
+            handleOutputStream(repeaterProcess);
 
-            serverProcess.waitFor();
-            clientProcess.waitFor();
+            initiatorProcess.waitFor();
+            repeaterProcess.waitFor();
+            serverProcess.destroy();
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

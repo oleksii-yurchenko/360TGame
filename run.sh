@@ -17,10 +17,10 @@ run_single_process_chat() {
     java -cp target/classes org.yura.single.process.chat.SingleProcessChat
 }
 
-# Function to run TwoProcessesChat
+# Function to run ThreeProcessesChat
 run_two_processes_chat() {
-    echo "Running Two Processes Chat..."
-    java -cp target/classes org.yura.two.processes.chat.TwoProcessesChat
+    echo "Running Three Processes Chat..."
+    java -cp target/classes org.yura.three.processes.chat.ThreeProcessesChat
 }
 
 # Compile the Maven project first
@@ -29,7 +29,7 @@ compile_maven_project
 # Prompt the user for input
 echo "Select the Application Mode:"
 echo "1) Single Process Chat"
-echo "2) Two Processes Chat"
+echo "2) Three Processes Chat (One server / Two clients)"
 read -p "Enter choice [1-2]: " choice
 
 # Run the selected application

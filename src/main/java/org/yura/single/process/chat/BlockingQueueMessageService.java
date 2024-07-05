@@ -1,14 +1,17 @@
 package org.yura.single.process.chat;
 
 import org.yura.model.MessageService;
-import java.util.concurrent.ArrayBlockingQueue;
+import org.yura.model.Player;
 import java.util.concurrent.BlockingQueue;
 
-public class BlockingQueueMessageService implements MessageService {
-    private final BlockingQueue<String> messageQueue = new ArrayBlockingQueue<>(1);
+public class BlockingQueueMessageService implements MessageService{
+    private final BlockingQueue<String> input;
+    private final BlockingQueue<String> output;
     private final int timeout;
 
-    public BlockingQueueMessageService(int timeout) {
+    public BlockingQueueMessageService(BlockingQueue<String> input, BlockingQueue<String> output, int timeout) {
+        this.input = input;
+        this.output = output;
         this.timeout = timeout;
     }
 
@@ -16,7 +19,8 @@ public class BlockingQueueMessageService implements MessageService {
     public void sendMessage(String msg) {
         try {
             Thread.sleep(timeout);
-            messageQueue.put(msg);
+
+           output.put(msg);
         } catch (InterruptedException err) {
             throw new IllegalStateException("Failed to send message", err);
         }
@@ -24,11 +28,16 @@ public class BlockingQueueMessageService implements MessageService {
 
     @Override
     public String receiveMessage() {
-        try{
-            return messageQueue.take();
+       try{
+            return input.take();
         } catch (InterruptedException err){
             throw new IllegalStateException("Failed to receive message", err);
         }
+    }
+
+    @Override
+    public void addPlayer(Player player) {
+        player.setTransport(this);
     }
 
 }

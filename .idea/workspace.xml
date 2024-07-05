@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b372be6-d1f5-4013-83d3-b16bd75b3ae9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/run.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/RepeaterStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/SingleProcessChat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/TwoProcessesChat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/three/processes/chat/InitiatorClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/three/processes/chat/RepeaterClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/three/processes/chat/SocketMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/three/processes/chat/SocketServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/utils/Messages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/player/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/socketsImpl/SocketMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/SocketMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/threadsImpl/BlockingQueueMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/threadsImpl/TwoThreadedChat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/InitiatorStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/InitiatorStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/RepeaterStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/RepeaterStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueMessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/SingleProcessChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/SingleProcessChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/SocketMessageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/two/processes/chat/TwoProcessesChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/three/processes/chat/ThreeProcessesChat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +43,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2ihkb7KLPyiKtWL7Wp1cm1wIAD5" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,8 +55,10 @@
     "Application.Chat.executor": "Run",
     "Application.Client.executor": "Run",
     "Application.Main.executor": "Run",
+    "Application.MultiProcessesChat.executor": "Run",
     "Application.Server.executor": "Run",
     "Application.SingleProcessChat.executor": "Run",
+    "Application.ThreeProcessesChat.executor": "Run",
     "Application.TwoProcessesChat.executor": "Run",
     "Application.TwoThreadedChat.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -76,6 +82,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.yura.two.processes.chat" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -93,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1719950267329</updated>
       <workItem from="1720007140616" duration="15854000" />
-      <workItem from="1720040596883" duration="15441000" />
+      <workItem from="1720040596883" duration="47508000" />
     </task>
     <servers />
   </component>

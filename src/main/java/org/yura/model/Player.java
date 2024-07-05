@@ -14,19 +14,27 @@ public class Player {
 
     public void sendMessage(String msg) {
         if (transport == null)
-            throw new IllegalStateException("Transport has not been defined!");
+            throw new IllegalStateException("The transport service has not been configured!");
 
         transport.sendMessage(msg);
+
         sentMsgCount++;
     }
 
     public String receiveMessage() {
         if (transport == null)
-            throw new IllegalStateException("Transport has not been defined!");
+            throw new IllegalStateException("The transport service has not been configured!");
 
-        var msg = transport.receiveMessage();
-        System.out.printf("%s <- %s%n", this.name, msg);
+        String msg = transport.receiveMessage();
+
+        String from = msg.split(":")[0];
+        String to = msg.split(":")[1];
+        String text = msg.split(":")[2];
+
+        System.out.printf("%s <- %s: %s%n", to, from, text);
+
         receivedMsgCount++;
+
         return msg;
     }
 
@@ -38,7 +46,8 @@ public class Player {
 
     public int getReceivedMsgCount() { return receivedMsgCount; }
 
-    public void setTransport(MessageService transport) {
-        this.transport = transport;
-    }
+    public String getName() {return name; }
+
+
+    public void setTransport(MessageService transport) { this.transport = transport; }
 }
