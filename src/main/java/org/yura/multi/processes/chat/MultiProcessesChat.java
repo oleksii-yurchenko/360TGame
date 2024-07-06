@@ -1,15 +1,20 @@
-package org.yura.three.processes.chat;
+package org.yura.multi.processes.chat;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ThreeProcessesChat {
+/**
+ * The {@code ThreeProcessesChat} class is responsible for starting and managing three separate processes:
+ * a server, an initiator client, and a repeater client. It uses {@link ProcessBuilder} to start each process
+ * and handles their output streams.
+ */
+public class MultiProcessesChat {
     public static void main(String[] args) {
         try {
-            ProcessBuilder serverBuilder = new ProcessBuilder("java", "-cp", "target/classes", "org.yura.three.processes.chat.SocketServer");
-            ProcessBuilder initiatorBuilder = new ProcessBuilder("java", "-cp", "target/classes", "org.yura.three.processes.chat.InitiatorClient");
-            ProcessBuilder repeaterBuilder = new ProcessBuilder("java", "-cp", "target/classes", "org.yura.three.processes.chat.RepeaterClient");
+            ProcessBuilder serverBuilder = new ProcessBuilder("java", "-cp", "target/classes", "org.yura.multi.processes.chat.SocketServer");
+            ProcessBuilder initiatorBuilder = new ProcessBuilder("java", "-cp", "target/classes", "org.yura.multi.processes.chat.InitiatorClient");
+            ProcessBuilder repeaterBuilder = new ProcessBuilder("java", "-cp", "target/classes", "org.yura.multi.processes.chat.RepeaterClient");
 
             Process serverProcess = serverBuilder.start();
             Process initiatorProcess = initiatorBuilder.start();

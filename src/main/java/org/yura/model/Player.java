@@ -2,6 +2,10 @@ package org.yura.model;
 
 import org.yura.model.message.strategy.MessageStrategy;
 
+/**
+ * The {@code Player} class represents a player in the messaging system.
+ * A player can send and receive messages using a {@code MessageService} and can execute a messaging strategy.
+ */
 public class Player {
     private final String name;
     private MessageService transport;
@@ -17,7 +21,6 @@ public class Player {
             throw new IllegalStateException("The transport service has not been configured!");
 
         transport.sendMessage(msg);
-
         sentMsgCount++;
     }
 
@@ -32,7 +35,6 @@ public class Player {
         String text = msg.split(":")[2];
 
         System.out.printf("%s <- %s: %s%n", to, from, text);
-
         receivedMsgCount++;
 
         return msg;
@@ -46,8 +48,7 @@ public class Player {
 
     public int getReceivedMsgCount() { return receivedMsgCount; }
 
-    public String getName() {return name; }
-
+    public String getName() { return name; }
 
     public void setTransport(MessageService transport) { this.transport = transport; }
 }

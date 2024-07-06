@@ -5,10 +5,13 @@ import org.yura.model.MessageService;
 import org.yura.model.Player;
 import org.yura.model.message.strategy.InitiatorStrategy;
 import org.yura.model.message.strategy.RepeaterStrategy;
-
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
+/**
+ * The {@code SingleProcessChat} class sets up and runs a single process chat application
+ * using two players and blocking queues for message passing.
+ */
 public class SingleProcessChat {
     public static Config config = new Config();
 

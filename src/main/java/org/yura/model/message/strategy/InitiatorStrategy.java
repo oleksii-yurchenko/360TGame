@@ -3,6 +3,11 @@ package org.yura.model.message.strategy;
 import org.yura.model.Player;
 import org.yura.utils.Messages;
 
+/**
+ * The {@code InitiatorStrategy} class implements the {@code MessageStrategy} interface.
+ * This strategy initiates a conversation with a specified partner, sending a start message
+ * and responding to received messages until a message limit is reached.
+ */
 public class InitiatorStrategy implements MessageStrategy {
     private final String partner;
     private final int msgLimit;

@@ -1,10 +1,14 @@
-package org.yura.three.processes.chat;
+package org.yura.multi.processes.chat;
 
 import java.io.*;
 import java.net.Socket;
 import org.yura.model.MessageService;
 import org.yura.model.Player;
 
+/**
+ * The {@code SocketMessageService} class implements the {@code MessageService} interface.
+ * This service uses a socket connection for sending and receiving messages between players.
+ */
 public class SocketMessageService implements MessageService {
     private final Socket socketClient;
     private final int timeout;
@@ -49,10 +53,9 @@ public class SocketMessageService implements MessageService {
             OutputStream output = socketClient.getOutputStream();
             PrintWriter writer = new PrintWriter(output, true);
 
-             writer.println(player.getName());
+            writer.println(player.getName());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 }

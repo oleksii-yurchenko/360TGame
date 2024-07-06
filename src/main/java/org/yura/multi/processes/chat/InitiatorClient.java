@@ -1,4 +1,4 @@
-package org.yura.three.processes.chat;
+package org.yura.multi.processes.chat;
 
 import org.yura.Config;
 import org.yura.model.MessageService;
@@ -6,6 +6,10 @@ import org.yura.model.Player;
 import org.yura.model.message.strategy.InitiatorStrategy;
 import java.io.IOException;
 
+/**
+ * The {@code InitiatorClient} class sets up and runs an initiator client for a Socket chat application.
+ * It configures the player and the message service, then starts communication using an initiator strategy.
+ */
 public class InitiatorClient {
     public static Config config = new Config();
 

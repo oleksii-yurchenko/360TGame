@@ -4,6 +4,10 @@ import org.yura.model.MessageService;
 import org.yura.model.Player;
 import java.util.concurrent.BlockingQueue;
 
+/**
+ * The {@code BlockingQueueMessageService} class implements the {@code MessageService} interface.
+ * This service uses blocking queues for message passing between players, with an optional timeout.
+ */
 public class BlockingQueueMessageService implements MessageService{
     private final BlockingQueue<String> input;
     private final BlockingQueue<String> output;
