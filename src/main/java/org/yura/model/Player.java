@@ -4,31 +4,28 @@ import org.yura.model.message.strategy.MessageStrategy;
 
 /**
  * The {@code Player} class represents a player in the messaging system.
- * A player can send and receive messages using a {@code MessageService} and can execute a messaging strategy.
+ * A player can send and receive messages using a {@code Messenger} and can execute a messaging strategy.
  */
 public class Player {
     private final String name;
-    private MessageService transport;
+    private final MessageService transport;
     private int sentMsgCount;
     private int receivedMsgCount;
 
-    public Player(String name) {
+    public Player(String name, MessageService transport) {
         this.name = name;
+        this.transport = transport;
+        transport.addPlayer(name);
     }
 
     public void sendMessage(String msg) {
-        if (transport == null)
-            throw new IllegalStateException("The transport service has not been configured!");
-
         transport.sendMessage(msg);
         sentMsgCount++;
     }
 
     public String receiveMessage() {
-        if (transport == null)
-            throw new IllegalStateException("The transport service has not been configured!");
 
-        String msg = transport.receiveMessage();
+        String msg = transport.receiveMessage(this.name);
 
         String from = msg.split(":")[0];
         String to = msg.split(":")[1];
@@ -49,6 +46,4 @@ public class Player {
     public int getReceivedMsgCount() { return receivedMsgCount; }
 
     public String getName() { return name; }
-
-    public void setTransport(MessageService transport) { this.transport = transport; }
 }

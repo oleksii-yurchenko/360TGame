@@ -8,4 +8,8 @@ public class Messages {
 
         return to + ":" + from + ":" + text;
     }
+
+    public static Boolean isValidMsg(String msg){
+        return msg != null && msg.matches("^[^:]+:[^:]+:[^:]+$");
+    }
 }

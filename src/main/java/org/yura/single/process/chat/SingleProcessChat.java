@@ -5,8 +5,6 @@ import org.yura.model.MessageService;
 import org.yura.model.Player;
 import org.yura.model.message.strategy.InitiatorStrategy;
 import org.yura.model.message.strategy.RepeaterStrategy;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
 
 /**
  * The {@code SingleProcessChat} class sets up and runs a single process chat application
@@ -22,17 +20,10 @@ public class SingleProcessChat {
     public static int timeout = config.getTimeout();
 
     public static void main(String[] args) {
-        Player initiator = new Player(playerName);
-        Player repeater = new Player(partnerName);
+        MessageService transport = new BlockingQueueMessageService(timeout);
 
-        BlockingQueue<String> input = new ArrayBlockingQueue<>(1);
-        BlockingQueue<String> output = new ArrayBlockingQueue<>(1);
-
-        MessageService initiatorTransport = new BlockingQueueMessageService(input, output, timeout);
-        MessageService repeaterTransport = new BlockingQueueMessageService(output, input, timeout);
-
-        initiatorTransport.addPlayer(initiator);
-        repeaterTransport.addPlayer(repeater);
+        Player initiator = new Player(playerName, transport);
+        Player repeater = new Player(partnerName, transport);
 
         run(initiator, repeater);
     }

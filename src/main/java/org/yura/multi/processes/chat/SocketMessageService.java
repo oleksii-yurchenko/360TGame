@@ -3,41 +3,48 @@ package org.yura.multi.processes.chat;
 import java.io.*;
 import java.net.Socket;
 import org.yura.model.MessageService;
-import org.yura.model.Player;
 
 /**
- * The {@code SocketMessageService} class implements the {@code MessageService} interface.
- * This service uses a socket connection for sending and receiving messages between players.
+ * The {@code SocketMessenger} class implements the {@code Messenger} interface.
+ * This class uses a socket connection for sending and receiving messages between players.
  */
-public class SocketMessageService implements MessageService {
+public class SocketMessageService implements MessageService{
     private final Socket socketClient;
+    private final PrintWriter writer;
+    private final BufferedReader reader;
     private final int timeout;
+    private final String host;
+    private final int port;
 
     public SocketMessageService(String host, int port, int timeout) throws IOException {
         this.socketClient = new Socket(host, port);
+        this.writer = new PrintWriter(socketClient.getOutputStream(), true);
+        this.reader = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
         this.timeout = timeout;
+        this.host = host;
+        this.port = port;
     }
 
     @Override
     public void sendMessage(String msg) {
         try {
             Thread.sleep(timeout);
-
-            OutputStream output = socketClient.getOutputStream();
-            PrintWriter writer = new PrintWriter(output, true);
             writer.println(msg);
-        } catch (IOException | InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public String receiveMessage() {
+    public void addPlayer(String playerName) {
+        writer.println("CMD_REGISTER:" + playerName);
+    }
+
+    @Override
+    public String receiveMessage(String to) {
         String msg = null;
 
         try {
-            InputStream input = socketClient.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
             msg = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
@@ -46,16 +53,13 @@ public class SocketMessageService implements MessageService {
         return msg;
     }
 
-    public void addPlayer(Player player) {
-        player.setTransport(this);
+    public void stopServer() throws IOException {
+        Socket unlock = new Socket(host, port);
 
-        try {
-            OutputStream output = socketClient.getOutputStream();
-            PrintWriter writer = new PrintWriter(output, true);
+        OutputStream unlockOutput = unlock.getOutputStream();
+        PrintWriter unlockWriter = new PrintWriter(unlockOutput, true);
 
-            writer.println(player.getName());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        unlockWriter.println("CMD_STOP_SERVER");
+        unlock.close();
     }
 }
