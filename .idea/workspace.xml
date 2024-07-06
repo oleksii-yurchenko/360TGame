@@ -6,19 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4b372be6-d1f5-4013-83d3-b16bd75b3ae9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/InitiatorStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/InitiatorStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/MessageStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/MessageStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/RepeaterStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/RepeaterStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/SingleProcessChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/SingleProcessChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/three/processes/chat/InitiatorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/InitiatorClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/three/processes/chat/RepeaterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/RepeaterClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/three/processes/chat/SocketMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/SocketMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/three/processes/chat/SocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/SocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/three/processes/chat/ThreeProcessesChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/MultiProcessesChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

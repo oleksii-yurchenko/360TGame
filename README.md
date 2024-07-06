@@ -13,10 +13,7 @@
    | *host*          | Host for Socket solution                |
    | *port*          | Port for Socket solution                |
 
-3. Set the execute permissions for the entry script **/run.sh**:
-   ```bash
-   chmod +x run.sh
-4. Run the entry script:
+3. Run the entry script:
    ```bash
    ./run.sh
-5. Choose **Single Process Chat** or **Three Processes Chat** solutions by pressing 1 or 2 on the keyboard.
+4. Choose **Single Process Chat** or **Three Processes Chat** solutions by pressing 1 or 2 on the keyboard.
