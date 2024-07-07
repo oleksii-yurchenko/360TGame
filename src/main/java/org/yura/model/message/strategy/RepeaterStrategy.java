@@ -5,7 +5,7 @@ import org.yura.utils.Messages;
 
 /**
  * The {@code RepeaterStrategy} class implements the {@code MessageStrategy} interface.
- * This strategy continuously receives messages and sends them back reversed, until a message limit is reached.
+ * This strategy continuously receives messages and sends them back to the partner, until a message limit is reached.
  */
 public class RepeaterStrategy implements MessageStrategy {
     private final int msgLimit;

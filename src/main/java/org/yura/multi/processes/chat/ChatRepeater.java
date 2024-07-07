@@ -6,9 +6,8 @@ import org.yura.model.message.strategy.RepeaterStrategy;
 import java.io.IOException;
 
 /**
- * The {@code RepeaterClient} class sets up and runs a repeater client for a Socket chat application.
- * It configures the player with a socket messenger, sends a start message to register the player's data on the server,
- * and then starts communication using a repeater strategy.
+ * The {@code ChatRepeater} class sets up and runs a repeater client for a Socket chat application.
+ * It configures the player with a socket transfer mechanism, and then starts communication using a repeater strategy.
  */
 public class ChatRepeater {
     public static void main(String[] args) throws IOException {
@@ -20,7 +19,7 @@ public class ChatRepeater {
         int limit = config.getMsgLimit();
         int timeout = config.getTimeout();
 
-        SocketMessageService transport = new SocketMessageService(host, port, timeout);
+        SocketTransfer transport = new SocketTransfer(host, port, timeout);
         Player player = new Player(playerName, transport);
         player.communicate(new RepeaterStrategy(limit));
     }

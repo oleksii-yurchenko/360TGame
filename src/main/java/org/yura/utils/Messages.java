@@ -1,5 +1,8 @@
 package org.yura.utils;
 
+/**
+ * The {@code Messages} class provides utility methods for processing and validating chat messages.
+ */
 public class Messages {
     public static String reverseMsg(String msg){
         String from = msg.split(":")[0];

@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * The {@code SocketServer} class implements a basic chat server that listens for client connections
+ * The {@code ChatServer} class implements a basic chat server that listens for client connections
  * and handles message forwarding between connected clients.
  */
 public class ChatServer {
@@ -22,8 +22,14 @@ public class ChatServer {
     }
 
     /**
-     * The server listens on the specified port accepts client connections and handles them in a
-     * separate thread.
+     * Starts the server to listen for client connections and handle incoming messages.
+     *
+     * <p>This method performs the following actions:</p>
+     * <ul>
+     *     <li>Registers new clients based on the received messages.</li>
+     *     <li>Reads and forwards messages from clients.</li>
+     *     <li>Closes all client connections and the server socket upon receiving a stop command.</li>
+     * </ul>
      */
     private void start() {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
@@ -46,7 +52,6 @@ public class ChatServer {
                 handleMessageForwarding(client);
             }
 
-
             closeClients();
             serverSocket.close();
             System.out.println("The server has been stopped.");
@@ -58,8 +63,7 @@ public class ChatServer {
 
     /**
      * Handles communication with a connected client in a new thread.
-     * The server treats the first message as the client's name and saves it to the server's state map.
-     * All subsequent messages are split to identify the receiver and forward the message to them.
+     * It splits messages to identify the receiver and forward the message to them.
      */
     private void handleMessageForwarding(Socket client){
         new Thread(() -> {

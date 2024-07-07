@@ -3,9 +3,12 @@ package org.yura;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * The {@code Config} class is responsible for loading and providing access to configuration properties
+ * from the {@code application.properties} file.
+ */
 public class Config {
-
-    private Properties properties = new Properties();
+    private final Properties properties = new Properties();
 
     public Config() {
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("application.properties")) {

@@ -5,17 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b372be6-d1f5-4013-83d3-b16bd75b3ae9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatInitiator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatRepeater.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageTransfer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/InitiatorClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/RepeaterStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/RepeaterStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatInitiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatInitiator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatRepeater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatRepeater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/MultiProcessesChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/MultiProcessesChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/RepeaterClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/SocketMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/SocketMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/SocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueMessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/SocketMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/SocketTransfer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueTransfer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/SingleProcessChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/SingleProcessChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/utils/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/utils/Messages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />

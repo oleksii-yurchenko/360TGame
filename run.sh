@@ -1,16 +1,5 @@
 #!/bin/bash
 
-# Function to compile the Maven project
-compile_maven_project() {
-    echo "Compiling Maven project..."
-    mvn compile
-    if [ $? -ne 0 ]; then
-        echo "Maven project compilation failed!"
-        exit 1
-    fi
-    echo "Maven project compiled successfully."
-}
-
 # Function to run SingleProcessChat
 run_single_process_chat() {
     echo "Running Single Process Chat..."
@@ -22,9 +11,6 @@ run_multi_processes_chat() {
     echo "Running Multi Processes Chat..."
     java -cp target/classes org.yura.multi.processes.chat.MultiProcessesChat
 }
-
-# Compile the Maven project first
-compile_maven_project
 
 # Prompt the user for input
 echo "Select the Application Mode:"

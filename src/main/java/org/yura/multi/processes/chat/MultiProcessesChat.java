@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 
 /**
  * The {@code MultiProcessesChat} class is responsible for starting and managing three separate processes:
- * a server, an initiator client, and a repeater client. It uses {@link ProcessBuilder} to start each process
- * and handles their output streams.
+ * a server {@code ChatServer}, an initiator client {@code ChatInitiator}, and a repeater client {@code ChatRepeater}.
+ * It uses {@link ProcessBuilder} to start each process and handles their output streams.
  */
 public class MultiProcessesChat {
     public static void main(String[] args) {
