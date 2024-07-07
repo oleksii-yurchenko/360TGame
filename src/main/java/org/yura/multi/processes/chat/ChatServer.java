@@ -71,13 +71,20 @@ public class ChatServer {
                 while (true){
                     String msg = readMessage(client);
 
-                    if (Messages.isValidMsg(msg)){
-                        String to = msg.split(":")[1];
-                        writeMessage(clients.get(to), msg);
+                    if (!Messages.isValidMsg(msg)){
+                        throw new IllegalArgumentException("Message format is not correct.");
                     }
+
+                    String to = msg.split(":")[1];
+
+                    if (!clients.containsKey(to)){
+                        throw new IllegalArgumentException("Receiver not found!");
+                    }
+
+                    writeMessage(clients.get(to), msg);
                 }
-            } catch (IOException ex) {
-                ex.printStackTrace();
+            } catch (IOException | IllegalArgumentException err) {
+                err.printStackTrace();
             }
         }).start();
     }

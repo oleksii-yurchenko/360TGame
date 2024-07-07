@@ -1,6 +1,8 @@
 package org.yura.single.process.chat;
 
 import org.yura.model.MessageTransfer;
+import org.yura.utils.Messages;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -18,26 +20,32 @@ public class BlockingQueueTransfer implements MessageTransfer {
         this.timeout = timeout;
     }
 
-    public void sendMessage(String msg) {
-        try {
-            Thread.sleep(timeout);
-
-            String to = msg.split(":")[1];
-            messages.get(to).put(msg);
-        } catch (InterruptedException err) {
-            throw new IllegalStateException("Failed to send message", err);
+    public void sendMessage(String msg) throws InterruptedException {
+        if (!Messages.isValidMsg(msg)){
+            throw new IllegalArgumentException("Message format is not correct");
         }
+
+        String to = msg.split(":")[1];
+
+        if (!messages.containsKey(to)){
+            throw new IllegalArgumentException("Receiver not found!");
+        }
+
+        Thread.sleep(timeout);
+        messages.get(to).put(msg);
     }
 
-    public String receiveMessage(String to) {
-       try{
-            return messages.get(to).take();
-        } catch (InterruptedException err){
-            throw new IllegalStateException("Failed to receive message", err);
+    public String receiveMessage(String to) throws InterruptedException {
+        if (!messages.containsKey(to)){
+            throw new IllegalArgumentException("Receiver not found!");
         }
+
+        return messages.get(to).take();
     }
 
     public void addPlayer(String playerName){
-        messages.put(playerName, new ArrayBlockingQueue<>(1));
+        if (playerName != null){
+            messages.put(playerName, new ArrayBlockingQueue<>(1));
+        }
     }
 }

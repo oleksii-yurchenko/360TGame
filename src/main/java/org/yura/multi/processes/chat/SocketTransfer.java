@@ -26,26 +26,14 @@ public class SocketTransfer implements MessageTransfer {
     }
 
     @Override
-    public void sendMessage(String msg) {
-        try {
-            Thread.sleep(timeout);
-            writer.println(msg);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void sendMessage(String msg) throws InterruptedException {
+        Thread.sleep(timeout);
+        writer.println(msg);
     }
 
     @Override
-    public String receiveMessage(String to) {
-        String msg = null;
-
-        try {
-            msg = reader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return msg;
+    public String receiveMessage(String to) throws IOException {
+        return reader.readLine();
     }
 
     @Override

@@ -2,6 +2,8 @@ package org.yura.model;
 
 import org.yura.model.message.strategy.MessageStrategy;
 
+import java.io.IOException;
+
 /**
  * The {@code Player} class represents a player in the messaging system.
  * A player can send and receive messages using a {@code MessageTransfer} and can execute a messaging strategy.
@@ -19,21 +21,25 @@ public class Player {
     }
 
     public void sendMessage(String msg) {
-        transport.sendMessage(msg);
-        sentMsgCount++;
+        try {
+            transport.sendMessage(msg);
+            sentMsgCount++;
+        } catch (InterruptedException | IllegalArgumentException err){
+            err.printStackTrace();
+        }
     }
 
     public String receiveMessage() {
-        String msg = transport.receiveMessage(this.name);
+        try {
+            String msg = transport.receiveMessage(this.name);
+            System.out.printf("%s <- %s: %s%n", msg.split(":")[1], msg.split(":")[0], msg.split(":")[2]);
+            receivedMsgCount++;
 
-        String from = msg.split(":")[0];
-        String to = msg.split(":")[1];
-        String text = msg.split(":")[2];
-
-        System.out.printf("%s <- %s: %s%n", to, from, text);
-        receivedMsgCount++;
-
-        return msg;
+            return msg;
+        } catch (InterruptedException | IOException | IllegalArgumentException err){
+            err.printStackTrace();
+            return null;
+        }
     }
 
     public void communicate(MessageStrategy strategy){
