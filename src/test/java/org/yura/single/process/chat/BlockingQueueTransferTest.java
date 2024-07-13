@@ -8,10 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BlockingQueueTransferTest {
 
-//    @Test
+    @Test
     void subscribeForMessages() {
-
-
         var ref = new Object() {
             Message actual;
         };
@@ -21,10 +19,12 @@ class BlockingQueueTransferTest {
         MessageTransfer transfer = new BlockingQueueTransfer(1);
 
 
-        transfer.onReceive("boo", (message) -> { ref.actual = message;});
+        transfer.onReceive("receiver", (message) -> {
+            ref.actual = message;
+        });
 
         transfer.sendMessage(initMessage);
 
-        assertEquals(ref.actual, initMessage);
+        assertEquals(initMessage, ref.actual);
     }
 }

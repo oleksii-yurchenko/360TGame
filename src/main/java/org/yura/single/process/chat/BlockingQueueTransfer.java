@@ -30,6 +30,14 @@ public class BlockingQueueTransfer implements MessageTransfer {
             try {
                 Thread.sleep(timeout);
                 messages.get(to).put(message.toString());
+
+                if (listeners.containsKey(to)){
+                    var handler = listeners.get(to);
+
+                    handler.accept(message);
+                }
+
+
             }catch (InterruptedException exp) {
                 exp.printStackTrace();
             }
@@ -52,6 +60,7 @@ public class BlockingQueueTransfer implements MessageTransfer {
 
     @Override
     public void onReceive(String name, Consumer<Message> handler) {
+        addPlayer(name);
         this.listeners.put(name, handler);
     }
 }
