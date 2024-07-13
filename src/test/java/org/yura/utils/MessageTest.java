@@ -1,10 +1,12 @@
 package org.yura.utils;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MessageTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void createMessage() {
 
         String text = "foo";
@@ -17,7 +19,7 @@ class MessageTest {
     }
 
 
-    @org.junit.jupiter.api.Test
+    @Test
     void serializeToString() {
 
         String text = "foo";
@@ -27,5 +29,11 @@ class MessageTest {
         Message message = new Message(from, to, text);
 
         assertEquals(message.toString(), from + ":" + to + ":" + text);
+    }
+
+
+    @Test
+    void canCreateFromString() {
+
     }
 }
