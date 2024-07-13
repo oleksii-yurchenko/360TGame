@@ -10,7 +10,7 @@ public class Message {
     private String from;
 
 
-    public Message(String text, String to, String from) {
+    public Message(String from, String to, String text) {
         this.text = text;
         this.to = to;
         this.from = from;
@@ -44,9 +44,6 @@ public class Message {
     public void setText(String text) {
         this.text = text;
     }
-
-
-
 
 
     public static String reverseMsg(String msg){

@@ -1,9 +1,5 @@
 package org.yura.utils;
 
-import org.yura.model.MessageTransfer;
-import org.yura.model.Player;
-import org.yura.single.process.chat.BlockingQueueTransfer;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MessageTest {
@@ -15,7 +11,7 @@ class MessageTest {
         String to = "ivan";
         String from = "fedor";
 
-        Message message = new Message(text, to, from);
+        Message message = new Message(from, to, text);
 
         assertEquals(message.getFrom(), from);
     }
@@ -28,7 +24,7 @@ class MessageTest {
         String to = "ivan";
         String from = "fedor";
 
-        Message message = new Message(text, to, from);
+        Message message = new Message(from, to, text);
 
         assertEquals(message.toString(), from + ":" + to + ":" + text);
     }
