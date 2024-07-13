@@ -22,9 +22,6 @@ public class BlockingQueueTransfer implements MessageTransfer {
 
     public void sendMessage(Message message) throws InterruptedException {
         String msg = message.toString();
-        if (!Message.isValidMsg(msg)){
-            throw new IllegalArgumentException("Message format is not correct");
-        }
 
         String to = msg.split(":")[1];
 

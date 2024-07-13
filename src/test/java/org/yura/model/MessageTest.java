@@ -2,7 +2,7 @@ package org.yura.model;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MessageTest {
 
@@ -56,5 +56,16 @@ class MessageTest {
 
 
         assertEquals(after, before.reverse());
+    }
+
+    @Test
+    void exceptionTesting() {
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Message("fdsfsdafdsf"),
+                "Expected new Message to throw, but it didn't"
+        );
+
+        assertTrue(thrown.getMessage().contains("Message format is not correct"));
     }
 }

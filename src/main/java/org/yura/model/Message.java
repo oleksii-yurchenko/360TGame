@@ -19,7 +19,9 @@ public class Message {
     }
 
     public Message(String msg) {
-        // TODO: handle use cases when string is not valid and can't be parsed
+        if (!Message.isValidMsg(msg)){
+            throw new IllegalArgumentException("Message format is not correct");
+        }
         this.from = msg.split(":")[0];
         this.to = msg.split(":")[1];
         this.text  = msg.split(":")[2];
