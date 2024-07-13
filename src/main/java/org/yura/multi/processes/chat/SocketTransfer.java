@@ -2,6 +2,9 @@ package org.yura.multi.processes.chat;
 
 import java.io.*;
 import java.net.Socket;
+import java.nio.channels.NotYetBoundException;
+import java.util.function.Consumer;
+
 import org.yura.model.MessageTransfer;
 import org.yura.model.Message;
 
@@ -27,9 +30,14 @@ public class SocketTransfer implements MessageTransfer {
     }
 
     @Override
-    public void sendMessage(Message msg) throws InterruptedException {
-        Thread.sleep(timeout);
-        writer.println(msg);
+    public void sendMessage(Message msg) {
+        try {
+            Thread.sleep(timeout);
+            writer.println(msg);
+        }catch (InterruptedException exp) {
+            exp.printStackTrace();
+        }
+
     }
 
     @Override
@@ -37,9 +45,20 @@ public class SocketTransfer implements MessageTransfer {
         return new Message(reader.readLine());
     }
 
+    /**
+     * @deprecated see 'addListener'
+     * @param playerName
+     */
+
     @Override
     public void addPlayer(String playerName) {
         writer.println("CMD_REGISTER:" + playerName);
+    }
+
+
+    @Override
+    public void onReceive(String name, Consumer<Message> handler) {
+        throw new NotYetBoundException();
     }
 
     /**

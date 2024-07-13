@@ -20,12 +20,8 @@ public class Player {
     }
 
     public void sendMessage(Message msg) {
-        try {
-            transport.sendMessage(msg);
-            sentMsgCount++;
-        } catch (InterruptedException | IllegalArgumentException err){
-            err.printStackTrace();
-        }
+        transport.sendMessage(msg);
+        sentMsgCount++;
     }
 
     public Message receiveMessage() {

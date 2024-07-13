@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.function.Consumer;
 
 /**
  * The {@code BlockingQueueTransfer} class implements the {@code MessageTransfer} interface.
@@ -14,21 +15,25 @@ import java.util.concurrent.BlockingQueue;
  */
 public class BlockingQueueTransfer implements MessageTransfer {
     private final Map<String, BlockingQueue<String>> messages = new HashMap<>();
+
+    private final Map<String, Consumer<Message>> listeners = new HashMap<>();
     private final int timeout;
 
     public BlockingQueueTransfer(int timeout) {
         this.timeout = timeout;
     }
 
-    public void sendMessage(Message message) throws InterruptedException {
-        String to =message.getTo();
+    public void sendMessage(Message message) {
+        String to = message.getTo();
 
-        if (!messages.containsKey(to)){
-            throw new IllegalArgumentException("Receiver not found!");
+        if (messages.containsKey(to)){
+            try {
+                Thread.sleep(timeout);
+                messages.get(to).put(message.toString());
+            }catch (InterruptedException exp) {
+                exp.printStackTrace();
+            }
         }
-
-        Thread.sleep(timeout);
-        messages.get(to).put(message.toString());
     }
 
     public Message receiveMessage(String to) throws InterruptedException {
@@ -43,5 +48,10 @@ public class BlockingQueueTransfer implements MessageTransfer {
         if (playerName != null){
             messages.put(playerName, new ArrayBlockingQueue<>(1));
         }
+    }
+
+    @Override
+    public void onReceive(String name, Consumer<Message> handler) {
+        this.listeners.put(name, handler);
     }
 }

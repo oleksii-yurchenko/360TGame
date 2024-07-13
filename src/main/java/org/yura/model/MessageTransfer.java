@@ -1,6 +1,7 @@
 package org.yura.model;
 
 import java.io.IOException;
+import java.util.function.Consumer;
 
 /**
  * The {@code MessageTransfer} interface defines methods for sending and receiving messages,
@@ -10,9 +11,18 @@ import java.io.IOException;
  */
 public interface MessageTransfer {
 
-    void sendMessage(Message msg) throws InterruptedException;
+    void sendMessage(Message msg);
 
     Message receiveMessage(String to) throws InterruptedException, IOException;
 
     void addPlayer(String playerName);
+
+    /**
+     * Supersede `addPlayer` with more generic registration of handler
+     * @param name - player uniq name
+     * @param handler - handler to act on message
+     */
+
+    void onReceive(String name, Consumer<Message> handler);
+
 }
