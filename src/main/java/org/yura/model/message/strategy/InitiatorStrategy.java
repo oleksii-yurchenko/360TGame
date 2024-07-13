@@ -27,7 +27,7 @@ public class InitiatorStrategy implements MessageStrategy {
             String msg = player.receiveMessage();
 
             if (player.getSentMsgCount() < msgLimit)
-                player.sendMessage(Message.reverseMsg(msg) + " " + player.getSentMsgCount());
+                player.sendMessage(new Message(msg).reverse() + " " + player.getSentMsgCount());
         }
 
         System.out.println("Stop condition has reached.");
