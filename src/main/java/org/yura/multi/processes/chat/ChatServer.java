@@ -69,19 +69,15 @@ public class ChatServer {
         new Thread(() -> {
             try {
                 while (true){
-                    String msg = readMessage(client);
+                    Message msg = new Message(readMessage(client));
 
-                    if (!Message.isValidMsg(msg)){
-                        throw new IllegalArgumentException("Message format is not correct.");
-                    }
-
-                    String to = msg.split(":")[1];
+                    String to = msg.getTo();
 
                     if (!clients.containsKey(to)){
                         throw new IllegalArgumentException("Receiver not found!");
                     }
 
-                    writeMessage(clients.get(to), msg);
+                    writeMessage(clients.get(to), msg.toString());
                 }
             } catch (IOException | IllegalArgumentException err) {
                 err.printStackTrace();
