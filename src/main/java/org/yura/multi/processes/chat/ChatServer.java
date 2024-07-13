@@ -1,7 +1,7 @@
 package org.yura.multi.processes.chat;
 
 import org.yura.Config;
-import org.yura.utils.Messages;
+import org.yura.utils.Message;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -71,7 +71,7 @@ public class ChatServer {
                 while (true){
                     String msg = readMessage(client);
 
-                    if (!Messages.isValidMsg(msg)){
+                    if (!Message.isValidMsg(msg)){
                         throw new IllegalArgumentException("Message format is not correct.");
                     }
 

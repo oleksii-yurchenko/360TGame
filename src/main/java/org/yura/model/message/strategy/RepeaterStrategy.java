@@ -1,7 +1,7 @@
 package org.yura.model.message.strategy;
 
 import org.yura.model.Player;
-import org.yura.utils.Messages;
+import org.yura.utils.Message;
 
 /**
  * The {@code RepeaterStrategy} class implements the {@code MessageStrategy} interface.
@@ -18,7 +18,7 @@ public class RepeaterStrategy implements MessageStrategy {
     public void start(Player player) {
         while (player.getSentMsgCount() < msgLimit) {
             String msg = player.receiveMessage();
-            player.sendMessage(Messages.reverseMsg(msg) + " " + player.getSentMsgCount());
+            player.sendMessage(Message.reverseMsg(msg) + " " + player.getSentMsgCount());
         }
     }
 }

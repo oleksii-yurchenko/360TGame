@@ -1,7 +1,7 @@
 package org.yura.single.process.chat;
 
 import org.yura.model.MessageTransfer;
-import org.yura.utils.Messages;
+import org.yura.utils.Message;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +21,7 @@ public class BlockingQueueTransfer implements MessageTransfer {
     }
 
     public void sendMessage(String msg) throws InterruptedException {
-        if (!Messages.isValidMsg(msg)){
+        if (!Message.isValidMsg(msg)){
             throw new IllegalArgumentException("Message format is not correct");
         }
 

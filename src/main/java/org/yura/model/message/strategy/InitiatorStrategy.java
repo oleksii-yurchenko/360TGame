@@ -1,7 +1,7 @@
 package org.yura.model.message.strategy;
 
 import org.yura.model.Player;
-import org.yura.utils.Messages;
+import org.yura.utils.Message;
 
 /**
  * The {@code InitiatorStrategy} class implements the {@code MessageStrategy} interface.
@@ -27,7 +27,7 @@ public class InitiatorStrategy implements MessageStrategy {
             String msg = player.receiveMessage();
 
             if (player.getSentMsgCount() < msgLimit)
-                player.sendMessage(Messages.reverseMsg(msg) + " " + player.getSentMsgCount());
+                player.sendMessage(Message.reverseMsg(msg) + " " + player.getSentMsgCount());
         }
 
         System.out.println("Stop condition has reached.");

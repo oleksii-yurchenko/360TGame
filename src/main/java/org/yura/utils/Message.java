@@ -3,7 +3,7 @@ package org.yura.utils;
 /**
  * The {@code Messages} class provides utility methods for processing and validating chat messages.
  */
-public class Messages {
+public class Message {
     public static String reverseMsg(String msg){
         String from = msg.split(":")[0];
         String to = msg.split(":")[1];
@@ -11,6 +11,10 @@ public class Messages {
 
         return to + ":" + from + ":" + text;
     }
+
+
+
+
 
     public static Boolean isValidMsg(String msg){
         return msg != null && msg.matches("^[^:]+:[^:]+:[^:]+$");
