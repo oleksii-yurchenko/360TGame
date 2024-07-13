@@ -30,13 +30,13 @@ public class Player {
         }
     }
 
-    public String receiveMessage() {
+    public Message receiveMessage() {
         try {
             String msg = transport.receiveMessage(this.name);
             System.out.printf("%s <- %s: %s%n", msg.split(":")[1], msg.split(":")[0], msg.split(":")[2]);
             receivedMsgCount++;
 
-            return msg;
+            return new Message(msg);
         } catch (InterruptedException | IOException | IllegalArgumentException err){
             err.printStackTrace();
             return null;

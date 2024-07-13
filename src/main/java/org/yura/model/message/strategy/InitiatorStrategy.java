@@ -24,10 +24,10 @@ public class InitiatorStrategy implements MessageStrategy {
         player.sendMessage(new Message(player.getName(), partner, startMsg));
 
         while (player.getReceivedMsgCount() < msgLimit){
-            String msg = player.receiveMessage();
+            Message msg = player.receiveMessage();
 
             if (player.getSentMsgCount() < msgLimit) {
-                Message newMessage = new Message(msg).reverse();
+                Message newMessage = msg.reverse();
                 newMessage.setText(newMessage.getText() + " " + player.getSentMsgCount());
                 player.sendMessage(newMessage);
             }
