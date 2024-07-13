@@ -12,11 +12,14 @@ class PlayerTest {
         MessageTransfer transport = new BlockingQueueTransfer(1);
 
         Player player = new Player("test", transport);
-        Player reciver = new Player("aaa", transport);
+        Player receiver = new Player("aaa", transport);
+
+        transport.addPlayer(player.getName());
+        transport.addPlayer(receiver.getName());
 
         assertEquals(player.getSentMsgCount(), 0);
 
-        player.sendMessage(new Message(player.getName(), reciver.getName(), "foo"));
+        player.sendMessage(new Message(player.getName(), receiver.getName(), "foo"));
         assertEquals(player.getSentMsgCount(), 1);
     }
 }

@@ -24,6 +24,9 @@ public class SingleProcessChat {
         Player player1 = new Player(playerName, transport);
         Player player2 = new Player(partnerName, transport);
 
+        transport.addPlayer(player1.getName());
+        transport.addPlayer(player2.getName());
+
         new Thread(() -> player1.communicate(new InitiatorStrategy(partnerName, limit, startMsg))).start();
         new Thread(() -> player2.communicate(new RepeaterStrategy(limit))).start();
     }

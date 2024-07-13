@@ -24,6 +24,8 @@ public class ChatInitiator {
 
         SocketTransfer transport = new SocketTransfer(host, port, timeout);
         Player player = new Player(playerName, transport);
+
+        transport.addPlayer(player.getName());
         player.communicate(new InitiatorStrategy(partnerName, limit, startMsg));
 
         transport.stopServer();

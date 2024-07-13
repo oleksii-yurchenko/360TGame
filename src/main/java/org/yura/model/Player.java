@@ -17,7 +17,6 @@ public class Player {
     public Player(String name, MessageTransfer transport) {
         this.name = name;
         this.transport = transport;
-        transport.addPlayer(name);
     }
 
     public void sendMessage(Message msg) {
