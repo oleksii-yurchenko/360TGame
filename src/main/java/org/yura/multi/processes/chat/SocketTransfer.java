@@ -33,8 +33,8 @@ public class SocketTransfer implements MessageTransfer {
     }
 
     @Override
-    public String receiveMessage(String to) throws IOException {
-        return reader.readLine();
+    public Message receiveMessage(String to) throws IOException {
+        return new Message(reader.readLine());
     }
 
     @Override

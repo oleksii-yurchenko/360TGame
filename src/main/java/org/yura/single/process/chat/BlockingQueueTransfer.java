@@ -36,12 +36,12 @@ public class BlockingQueueTransfer implements MessageTransfer {
         messages.get(to).put(msg);
     }
 
-    public String receiveMessage(String to) throws InterruptedException {
+    public Message receiveMessage(String to) throws InterruptedException {
         if (!messages.containsKey(to)){
             throw new IllegalArgumentException("Receiver not found!");
         }
 
-        return messages.get(to).take();
+        return new Message(messages.get(to).take());
     }
 
     public void addPlayer(String playerName){

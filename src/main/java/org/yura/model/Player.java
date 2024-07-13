@@ -32,11 +32,11 @@ public class Player {
 
     public Message receiveMessage() {
         try {
-            String msg = transport.receiveMessage(this.name);
-            System.out.printf("%s <- %s: %s%n", msg.split(":")[1], msg.split(":")[0], msg.split(":")[2]);
+            Message msg = transport.receiveMessage(this.name);
+            System.out.printf("%s <- %s: %s%n", msg.getTo(), msg.getFrom(), msg.getText());
             receivedMsgCount++;
 
-            return new Message(msg);
+            return msg;
         } catch (InterruptedException | IOException | IllegalArgumentException err){
             err.printStackTrace();
             return null;

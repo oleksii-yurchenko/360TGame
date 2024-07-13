@@ -14,7 +14,7 @@ public interface MessageTransfer {
 
     void sendMessage(Message msg) throws InterruptedException;
 
-    String receiveMessage(String to) throws InterruptedException, IOException;
+    Message receiveMessage(String to) throws InterruptedException, IOException;
 
     void addPlayer(String playerName);
 }
