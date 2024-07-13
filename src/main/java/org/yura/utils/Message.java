@@ -16,10 +16,23 @@ public class Message {
         this.from = from;
     }
 
+    public Message(String msg) {
+        this.from = msg.split(":")[0];
+        this.to = msg.split(":")[1];
+        this.text  = msg.split(":")[2];
+    }
+
+
     @Override
     public String toString() {
         return from + ":" + to + ":" + text;
     }
+
+    public Message reverse() {
+        return  new Message(to, from, text);
+    }
+
+
 
     public String getFrom() {
         return from;
