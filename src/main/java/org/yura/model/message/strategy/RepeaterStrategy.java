@@ -1,7 +1,7 @@
 package org.yura.model.message.strategy;
 
 import org.yura.model.Player;
-import org.yura.utils.Message;
+import org.yura.model.Message;
 
 /**
  * The {@code RepeaterStrategy} class implements the {@code MessageStrategy} interface.

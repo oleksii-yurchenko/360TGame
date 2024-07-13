@@ -1,7 +1,6 @@
 package org.yura.model;
 
 import org.yura.single.process.chat.BlockingQueueTransfer;
-import org.yura.utils.Message;
 
 import static org.junit.jupiter.api.Assertions.*;
 

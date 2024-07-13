@@ -1,7 +1,7 @@
 package org.yura.single.process.chat;
 
 import org.yura.model.MessageTransfer;
-import org.yura.utils.Message;
+import org.yura.model.Message;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -3,7 +3,7 @@ package org.yura.multi.processes.chat;
 import java.io.*;
 import java.net.Socket;
 import org.yura.model.MessageTransfer;
-import org.yura.utils.Message;
+import org.yura.model.Message;
 
 /**
  * The {@code SocketTransfer} class implements the {@code MessageTransfer} interface.

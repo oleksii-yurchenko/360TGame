@@ -1,7 +1,6 @@
 package org.yura.model;
 
 import org.yura.model.message.strategy.MessageStrategy;
-import org.yura.utils.Message;
 
 import java.io.IOException;
 

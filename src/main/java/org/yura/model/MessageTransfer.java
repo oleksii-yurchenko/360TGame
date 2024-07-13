@@ -1,7 +1,5 @@
 package org.yura.model;
 
-import org.yura.utils.Message;
-
 import java.io.IOException;
 
 /**

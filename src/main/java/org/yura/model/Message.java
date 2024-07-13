@@ -1,4 +1,4 @@
-package org.yura.utils;
+package org.yura.model;
 
 import java.util.Objects;
 

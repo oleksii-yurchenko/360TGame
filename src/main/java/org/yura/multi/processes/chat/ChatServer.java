@@ -1,7 +1,7 @@
 package org.yura.multi.processes.chat;
 
 import org.yura.Config;
-import org.yura.utils.Message;
+import org.yura.model.Message;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
