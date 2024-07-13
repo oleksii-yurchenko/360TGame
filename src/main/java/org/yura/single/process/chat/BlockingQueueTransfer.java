@@ -21,16 +21,14 @@ public class BlockingQueueTransfer implements MessageTransfer {
     }
 
     public void sendMessage(Message message) throws InterruptedException {
-        String msg = message.toString();
-
-        String to = msg.split(":")[1];
+        String to =message.getTo();
 
         if (!messages.containsKey(to)){
             throw new IllegalArgumentException("Receiver not found!");
         }
 
         Thread.sleep(timeout);
-        messages.get(to).put(msg);
+        messages.get(to).put(message.toString());
     }
 
     public Message receiveMessage(String to) throws InterruptedException {
