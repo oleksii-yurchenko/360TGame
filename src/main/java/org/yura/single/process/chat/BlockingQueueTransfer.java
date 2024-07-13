@@ -20,7 +20,8 @@ public class BlockingQueueTransfer implements MessageTransfer {
         this.timeout = timeout;
     }
 
-    public void sendMessage(String msg) throws InterruptedException {
+    public void sendMessage(Message message) throws InterruptedException {
+        String msg = message.toString();
         if (!Message.isValidMsg(msg)){
             throw new IllegalArgumentException("Message format is not correct");
         }

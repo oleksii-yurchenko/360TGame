@@ -1,5 +1,7 @@
 package org.yura.model;
 
+import org.yura.utils.Message;
+
 import java.io.IOException;
 
 /**
@@ -10,7 +12,7 @@ import java.io.IOException;
  */
 public interface MessageTransfer {
 
-    void sendMessage(String msg) throws InterruptedException;
+    void sendMessage(Message msg) throws InterruptedException;
 
     String receiveMessage(String to) throws InterruptedException, IOException;
 

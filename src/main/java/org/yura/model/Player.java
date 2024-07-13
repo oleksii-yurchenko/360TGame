@@ -23,7 +23,7 @@ public class Player {
 
     public void sendMessage(Message msg) {
         try {
-            transport.sendMessage(msg.toString());
+            transport.sendMessage(msg);
             sentMsgCount++;
         } catch (InterruptedException | IllegalArgumentException err){
             err.printStackTrace();
