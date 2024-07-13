@@ -16,6 +16,10 @@ public class Message {
         this.from = from;
     }
 
+    @Override
+    public String toString() {
+        return from + ":" + to + ":" + text;
+    }
 
     public String getFrom() {
         return from;

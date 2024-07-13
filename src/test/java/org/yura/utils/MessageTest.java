@@ -19,4 +19,17 @@ class MessageTest {
 
         assertEquals(message.getFrom(), from);
     }
+
+
+    @org.junit.jupiter.api.Test
+    void serializeToString() {
+
+        String text = "foo";
+        String to = "ivan";
+        String from = "fedor";
+
+        Message message = new Message(text, to, from);
+
+        assertEquals(message.toString(), from + ":" + to + ":" + text);
+    }
 }
