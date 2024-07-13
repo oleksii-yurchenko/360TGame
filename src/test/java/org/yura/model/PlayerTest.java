@@ -1,6 +1,7 @@
 package org.yura.model;
 
 import org.yura.single.process.chat.BlockingQueueTransfer;
+import org.yura.utils.Message;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +17,7 @@ class PlayerTest {
 
         assertEquals(player.getSentMsgCount(), 0);
 
-        player.sendMessage("test:aaa:foo");
+        player.sendMessage(new Message(player.getName(), reciver.getName(), "foo"));
         assertEquals(player.getSentMsgCount(), 1);
     }
 }

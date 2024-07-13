@@ -18,7 +18,11 @@ public class RepeaterStrategy implements MessageStrategy {
     public void start(Player player) {
         while (player.getSentMsgCount() < msgLimit) {
             String msg = player.receiveMessage();
-            player.sendMessage(new Message(msg).reverse() + " " + player.getSentMsgCount());
+            Message newMessage = new Message(msg).reverse();
+            newMessage.setText(newMessage.getText() + " " + player.getSentMsgCount());
+
+
+            player.sendMessage(newMessage);
         }
     }
 }

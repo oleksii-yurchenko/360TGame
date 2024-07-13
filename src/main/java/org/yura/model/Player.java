@@ -1,6 +1,7 @@
 package org.yura.model;
 
 import org.yura.model.message.strategy.MessageStrategy;
+import org.yura.utils.Message;
 
 import java.io.IOException;
 
@@ -20,9 +21,9 @@ public class Player {
         transport.addPlayer(name);
     }
 
-    public void sendMessage(String msg) {
+    public void sendMessage(Message msg) {
         try {
-            transport.sendMessage(msg);
+            transport.sendMessage(msg.toString());
             sentMsgCount++;
         } catch (InterruptedException | IllegalArgumentException err){
             err.printStackTrace();

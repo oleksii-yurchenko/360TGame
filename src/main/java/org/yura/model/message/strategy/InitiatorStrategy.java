@@ -21,13 +21,16 @@ public class InitiatorStrategy implements MessageStrategy {
 
     @Override
     public void start(Player player) {
-        player.sendMessage(player.getName() + ":" + partner + ":" + startMsg);
+        player.sendMessage(new Message(player.getName(), partner, startMsg));
 
         while (player.getReceivedMsgCount() < msgLimit){
             String msg = player.receiveMessage();
 
-            if (player.getSentMsgCount() < msgLimit)
-                player.sendMessage(new Message(msg).reverse() + " " + player.getSentMsgCount());
+            if (player.getSentMsgCount() < msgLimit) {
+                Message newMessage = new Message(msg).reverse();
+                newMessage.setText(newMessage.getText() + " " + player.getSentMsgCount());
+                player.sendMessage(newMessage);
+            }
         }
 
         System.out.println("Stop condition has reached.");
