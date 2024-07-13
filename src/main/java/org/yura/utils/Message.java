@@ -1,5 +1,7 @@
 package org.yura.utils;
 
+import java.util.Objects;
+
 /**
  * The {@code Messages} class provides utility methods for processing and validating chat messages.
  */
@@ -17,6 +19,7 @@ public class Message {
     }
 
     public Message(String msg) {
+        // TODO: handle use cases when string is not valid and can't be parsed
         this.from = msg.split(":")[0];
         this.to = msg.split(":")[1];
         this.text  = msg.split(":")[2];
@@ -28,8 +31,21 @@ public class Message {
         return from + ":" + to + ":" + text;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Message message = (Message) o;
+        return Objects.equals(text, message.text) && Objects.equals(to, message.to) && Objects.equals(from, message.from);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(text, to, from);
+    }
+
     public Message reverse() {
-        return  new Message(to, from, text);
+        return new Message(to, from, text);
     }
 
 

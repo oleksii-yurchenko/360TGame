@@ -40,9 +40,21 @@ class MessageTest {
 
         String serialization = from + ":" + to + ":" + text;
 
-        // TODO: handle use cases when string is not valid and can't be parsed
         Message message = new Message(serialization);
 
         assertEquals(message.toString(), serialization);
+    }
+
+    @Test
+    void canReverseAddresses() {
+        String text = "foo";
+        String to = "ivan";
+        String from = "fedor";
+
+        Message before = new Message(from, to, text);
+        Message after = new Message(to, from, text);
+
+
+        assertEquals(after, before.reverse());
     }
 }
