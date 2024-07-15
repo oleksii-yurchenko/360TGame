@@ -22,24 +22,24 @@ public class BlockingQueueTransfer implements MessageTransfer {
     public void sendMessage(Message msg) {
         String to = msg.getTo();
 
-        try {
-            if (!messages.containsKey(to)){
-                throw new IllegalArgumentException("Receiver not found: " + to);
-            }
+        if (!messages.containsKey(to)){
+            throw new IllegalArgumentException("Receiver not found: " + to);
+        }
 
+        try {
             Thread.sleep(timeout);
             messages.get(msg.getTo()).put(msg);
-        } catch (InterruptedException | IllegalArgumentException ex){
+        } catch (InterruptedException ex){
             ex.printStackTrace();
         }
     }
 
     public Message receiveMessage(String to) {
-        try {
-            if (!messages.containsKey(to)){
-                throw new IllegalArgumentException("Receiver not found! " + to);
-            }
+        if (!messages.containsKey(to)){
+            throw new IllegalArgumentException("Receiver not found! " + to);
+        }
 
+        try {
             return messages.get(to).take();
         } catch (InterruptedException | IllegalArgumentException ex){
             ex.printStackTrace();

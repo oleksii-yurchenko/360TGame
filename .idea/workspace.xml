@@ -5,22 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b372be6-d1f5-4013-83d3-b16bd75b3ae9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/common/ChatCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/common/SocketStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/yura/model/MessageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/yura/model/PlayerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/yura/single/process/chat/BlockingQueueTransferTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageTransfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/MessageTransfer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/InitiatorStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/InitiatorStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/RepeaterStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/model/message/strategy/RepeaterStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatInitiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatInitiator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatRepeater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatRepeater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/MultiProcessesChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/MultiProcessesChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/SocketTransfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/multi/processes/chat/SocketTransfer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueTransfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/BlockingQueueTransfer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/SingleProcessChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yura/single/process/chat/SingleProcessChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yura/utils/Messages.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +23,7 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -53,41 +44,109 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Chat.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MultiProcessesChat.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SingleProcessChat.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ThreeProcessesChat.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TwoProcessesChat.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TwoThreadedChat.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Chat.executor": "Run",
+    "Application.Client.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MultiProcessesChat.executor": "Run",
+    "Application.Server.executor": "Run",
+    "Application.SingleProcessChat.executor": "Run",
+    "Application.ThreeProcessesChat.executor": "Run",
+    "Application.TwoProcessesChat.executor": "Run",
+    "Application.TwoThreadedChat.executor": "Run",
+    "JUnit.BlockingQueueTransferTest.executor": "Run",
+    "JUnit.InitiatorStrategyTest.executor": "Run",
+    "JUnit.MessageTest.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.yura.multi.processes.chat" />
+      <recent name="org.yura.single.process.chat" />
+      <recent name="org.yura.model.message.strategy" />
+      <recent name="org.yura.model" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.yura.two.processes.chat" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.BlockingQueueTransferTest">
+    <configuration name="BlockingQueueTransferTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="players-chat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.yura.single.process.chat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.yura.single.process.chat" />
+      <option name="MAIN_CLASS_NAME" value="org.yura.single.process.chat.BlockingQueueTransferTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InitiatorStrategyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="players-chat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.yura.model.message.strategy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.yura.model.message.strategy" />
+      <option name="MAIN_CLASS_NAME" value="org.yura.model.message.strategy.InitiatorStrategyTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MessageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="players-chat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.yura.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.yura.model" />
+      <option name="MAIN_CLASS_NAME" value="org.yura.model.MessageTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BlockingQueueTransferTest" />
+        <item itemvalue="JUnit.InitiatorStrategyTest" />
+        <item itemvalue="JUnit.MessageTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
