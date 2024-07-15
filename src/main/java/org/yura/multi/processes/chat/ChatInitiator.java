@@ -11,21 +11,26 @@ import java.io.*;
  * After finishing, it sends a stop signal to the chat server to initiate its shutdown.
  */
 public class ChatInitiator {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         Config config = new Config();
 
-        String host = config.getHost();
-        int port = config.getPort();
         String playerName = config.getFirstPlayerName();
         String partnerName = config.getSecondPlayerName();
-        int limit = config.getMsgLimit();
         String startMsg = config.getStartMsg();
+        String host = config.getHost();
+        int port = config.getPort();
+        int limit = config.getMsgLimit();
         int timeout = config.getTimeout();
 
-        SocketTransfer transport = new SocketTransfer(host, port, timeout);
-        Player player = new Player(playerName, transport);
-        player.communicate(new InitiatorStrategy(partnerName, limit, startMsg));
+        try (SocketTransfer transport = new SocketTransfer(host, port, timeout)) {
 
-        transport.stopServer();
+            Player player = new Player(playerName);
+            player.setTransport(transport);
+            player.communicate(new InitiatorStrategy(partnerName, limit, startMsg));
+
+            transport.stopServer();
+        } catch (IOException ex){
+            ex.printStackTrace();
+        }
     }
 }

@@ -1,7 +1,9 @@
 package org.yura.multi.processes.chat;
 
 import org.yura.Config;
-import org.yura.utils.Messages;
+import org.yura.model.Message;
+import org.yura.multi.processes.chat.common.ChatCommand;
+import org.yura.multi.processes.chat.common.SocketStream;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -14,74 +16,76 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ChatServer {
     private final int port = new Config().getPort();
-    private final Map<String, Socket> clients = new ConcurrentHashMap<>();
+    private final Map<String, SocketStream> clients = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
         ChatServer server = new ChatServer();
-        server.start();
+        server.run();
     }
 
     /**
-     * Starts the server to listen for client connections and handle incoming messages.
-     *
-     * <p>This method performs the following actions:</p>
-     * <ul>
-     *     <li>Registers new clients based on the received messages.</li>
-     *     <li>Reads and forwards messages from clients.</li>
-     *     <li>Closes all client connections and the server socket upon receiving a stop command.</li>
-     * </ul>
+     * Starts the server to listen for client connections and their commands, as well
+     * as forwarding messages between clients. Finally, it closes all connections and
+     * the server socket upon receiving a stop command.
      */
-    private void start() {
-        try (ServerSocket serverSocket = new ServerSocket(port)) {
+    private void run() {
+        try {
+            ServerSocket serverSocket = new ServerSocket(port);
             System.out.println("Server is listening on port " + port);
 
-            while (true) {
-                Socket client = serverSocket.accept();
-                String msg = readMessage(client);
-
-                if (msg.startsWith("CMD_REGISTER:")){
-                    String playerName = msg.split(":")[1];
-                    clients.put(playerName, client);
-                    System.out.println("New client connected: " + playerName);
-                }
-
-                if (msg.startsWith("CMD_STOP_SERVER")){
-                    break;
-                }
-
-                handleMessageForwarding(client);
-            }
+            handleConnections(serverSocket);
 
             closeClients();
             serverSocket.close();
-            System.out.println("The server has been stopped.");
 
+            System.out.println("The server has been stopped...");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
 
-    /**
-     * Handles communication with a connected client in a new thread.
-     * It splits messages to identify the receiver and forward the message to them.
-     */
-    private void handleMessageForwarding(Socket client){
+    private void handleConnections(ServerSocket serverSocket) throws IOException{
+        while (true) {
+            Socket connection = serverSocket.accept();
+            SocketStream client = new SocketStream(connection);
+            String msg = client.readLine();
+
+            if (msg.startsWith(ChatCommand.CHAT_REGISTER)){
+                String playerName = msg.split(":")[1];
+                clients.put(playerName, client);
+                client.writeLine(ChatCommand.CHAT_REGISTER_ACK);
+
+                handleMessageForwarding(client, playerName);
+            }
+
+            if (msg.equals(ChatCommand.CHAT_STOP_SERVER)){
+                break;
+            }
+        }
+    }
+
+    private void handleMessageForwarding(SocketStream client, String playerName){
         new Thread(() -> {
             try {
                 while (true){
-                    String msg = readMessage(client);
+                    String strMsg = client.readLine();
 
-                    if (!Messages.isValidMsg(msg)){
+                    if (strMsg == null) {
+                        System.out.printf("Player %s disconnected...%n", playerName);
+                        break;
+                    }
+
+                    if (!Message.isValidMsgString(strMsg)){
                         throw new IllegalArgumentException("Message format is not correct.");
                     }
 
-                    String to = msg.split(":")[1];
+                    String to = strMsg.split(":")[1];
 
                     if (!clients.containsKey(to)){
-                        throw new IllegalArgumentException("Receiver not found!");
+                        throw new IllegalArgumentException("Receiver not found! " + to);
                     }
 
-                    writeMessage(clients.get(to), msg);
+                    clients.get(to).writeLine(strMsg);
                 }
             } catch (IOException | IllegalArgumentException err) {
                 err.printStackTrace();
@@ -89,24 +93,9 @@ public class ChatServer {
         }).start();
     }
 
-
-    private void writeMessage(Socket client, String msg) throws IOException {
-        OutputStream output = client.getOutputStream();
-        PrintWriter writer = new PrintWriter(output, true);
-
-        writer.println(msg);
-    }
-
-    private String readMessage(Socket client) throws IOException {
-        InputStream input = client.getInputStream();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-        return reader.readLine();
-    }
-
     private void closeClients() throws IOException {
-        for (Socket client: clients.values()){
+        for (SocketStream client: clients.values()){
             client.close();
         }
     }
-
 }

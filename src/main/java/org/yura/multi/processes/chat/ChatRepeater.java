@@ -10,17 +10,23 @@ import java.io.IOException;
  * It configures the player with a socket transfer mechanism, and then starts communication using a repeater strategy.
  */
 public class ChatRepeater {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Config config = new Config();
 
+        String playerName = config.getSecondPlayerName();
         String host = config.getHost();
         int port = config.getPort();
-        String playerName = config.getSecondPlayerName();
         int limit = config.getMsgLimit();
         int timeout = config.getTimeout();
 
-        SocketTransfer transport = new SocketTransfer(host, port, timeout);
-        Player player = new Player(playerName, transport);
-        player.communicate(new RepeaterStrategy(limit));
+        try (SocketTransfer transport = new SocketTransfer(host, port, timeout)){
+
+            Player player = new Player(playerName);
+            player.setTransport(transport);
+            player.communicate(new RepeaterStrategy(limit));
+
+        } catch (IOException ex){
+            ex.printStackTrace();
+        }
     }
 }

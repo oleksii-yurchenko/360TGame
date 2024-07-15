@@ -21,8 +21,12 @@ public class SingleProcessChat {
         int timeout = config.getTimeout();
 
         MessageTransfer transport = new BlockingQueueTransfer(timeout);
-        Player player1 = new Player(playerName, transport);
-        Player player2 = new Player(partnerName, transport);
+
+        Player player1 = new Player(playerName);
+        Player player2 = new Player(partnerName);
+
+        player1.setTransport(transport);
+        player2.setTransport(transport);
 
         new Thread(() -> player1.communicate(new InitiatorStrategy(partnerName, limit, startMsg))).start();
         new Thread(() -> player2.communicate(new RepeaterStrategy(limit))).start();

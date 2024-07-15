@@ -15,7 +15,7 @@
 
 3. Build the App:
    ```bash
-   mvn build
+   mvn install
 4. Run the entry script:
    ```bash
    ./run.sh

@@ -2,48 +2,48 @@ package org.yura.model;
 
 import org.yura.model.message.strategy.MessageStrategy;
 
-import java.io.IOException;
-
 /**
  * The {@code Player} class represents a player in the messaging system.
  * A player can send and receive messages using a {@code MessageTransfer} and can execute a messaging strategy.
  */
 public class Player {
     private final String name;
-    private final MessageTransfer transport;
+    private MessageTransfer transport;
     private int sentMsgCount;
     private int receivedMsgCount;
 
-    public Player(String name, MessageTransfer transport) {
+    public Player(String name){
         this.name = name;
-        this.transport = transport;
-        transport.addPlayer(name);
     }
 
-    public void sendMessage(String msg) {
-        try {
-            transport.sendMessage(msg);
-            sentMsgCount++;
-        } catch (InterruptedException | IllegalArgumentException err){
-            err.printStackTrace();
+    public void sendMessage(Message msg) {
+        if (transport == null) {
+            throw new IllegalStateException("Transport has not been set!");
         }
+
+        transport.sendMessage(msg);
+        sentMsgCount++;
     }
 
-    public String receiveMessage() {
-        try {
-            String msg = transport.receiveMessage(this.name);
-            System.out.printf("%s <- %s: %s%n", msg.split(":")[1], msg.split(":")[0], msg.split(":")[2]);
-            receivedMsgCount++;
-
-            return msg;
-        } catch (InterruptedException | IOException | IllegalArgumentException err){
-            err.printStackTrace();
-            return null;
+    public Message receiveMessage() {
+        if (transport == null) {
+            throw new IllegalStateException("Transport has not been set!");
         }
+
+        Message msg = transport.receiveMessage(name);
+        System.out.printf("%s <- %s: %s%n", msg.getTo(), msg.getFrom(), msg.getContent());
+        receivedMsgCount++;
+
+        return msg;
     }
 
     public void communicate(MessageStrategy strategy){
         strategy.start(this);
+    }
+
+    public void setTransport(MessageTransfer transport) {
+        this.transport = transport;
+        transport.addPlayer(name);
     }
 
     public int getSentMsgCount() { return sentMsgCount; }
